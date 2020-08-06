@@ -9,9 +9,6 @@
 
 
 <script>
-    import Vue from 'vue'
-    import Button from 'material-components-vue/dist/button'
-    Vue.use(Button)
 
     export default {
         name: "Home"

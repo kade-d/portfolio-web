@@ -17,11 +17,12 @@
                 devpost_link="https://devpost.com/software/ohana-mobile-app">
         </Project_Card>
         <Project_Card
-                avatar_image_path="ohana_icon.webp"
-                description="Ohana's iOS and Android app offers customers an easy method of contactless ordering."
+                avatar_image_path="bsu.webp"
+                description="An API to manage data for Ball State's Shuttle Bus system."
                 main_image_path="ohana.webp"
-                title="Ohana's App"
-                devpost_link="https://devpost.com/software/ohana-mobile-app">
+                title="Ball State's Shuttle Bus API"
+                devpost_link="https://devpost.com/software/ohana-mobile-app"
+                github_link="https://github.com/kade-d/BusShuttleAPI">
         </Project_Card>
     </div>
 </template>

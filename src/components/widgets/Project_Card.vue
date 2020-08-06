@@ -24,7 +24,10 @@
 
         <div class="trailing-content">
             <a v-if="devpost_link != null" :href="devpost_link">
-                <img class="icon" width="30px" src="../../assets/devpost-logo.webp" alt="devpost-logo">
+                <img class="icon" height="30" width="30" src="../../assets/devpost-logo.webp" alt="devpost-logo">
+            </a>
+            <a v-if="github_link != null" :href="github_link">
+              <img class="icon" width="30" src="../../assets/github.png" alt="devpost-logo">
             </a>
         </div>
 
@@ -51,6 +54,9 @@
             },
             devpost_link: {
                 type: String
+            },
+            github_link: {
+              type: String
             },
             main_image_path: {
                 type: String,
