@@ -4,12 +4,15 @@
             <md-card>
                 <md-card-media-actions id="my-media">
                     <md-card-media>
-                        <img src="../../assets/headshot.webp" alt="Headshot">
+                        <img src="../../assets/headshot.png" alt="Headshot">
                     </md-card-media>
                 </md-card-media-actions>
                 <md-card-header-text>
                     <div class="md-title">About Kade</div>
-                    <div class="md-subhead" id="my-subhead">Kade grew up tinkering with technology. He wrote his first program on a TI-84 calculator during a class in high school.</div>
+                    <div class="md-subhead" id="my-subhead">Kade grew up tinkering with technology.
+                        He wrote his first program on a TI-84 calculator during a class in high school.
+                        Kade is motivated by creating meaningful software on cohesive and driven teams.
+                    </div>
                 </md-card-header-text>
             </md-card>
         </div>
@@ -25,8 +28,9 @@
 <style lang="scss">
 
     .about-row{
+        display: flex;
         padding: 1em;
-        justify-items: center;
+        justify-content: center;
     }
 
     .md-card-media {
@@ -39,6 +43,7 @@
     }
 
     .md-title {
+        font-family: 'Open Sans', sans-serif;
         padding-top: 16px;
         padding-left: 16px;
         background-color: #424242;
@@ -52,5 +57,11 @@
          font-size: 16px;
          padding: 8px 16px 16px;
      }
+
+    @media (min-width: 768px) {
+        .md-card{
+            width: 50%;
+        }
+    }
 
 </style>

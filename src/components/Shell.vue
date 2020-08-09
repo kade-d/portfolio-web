@@ -3,7 +3,7 @@
 <template>
     <div class="root">
         <div class="header">Kade Dentel</div>
-        <div class="content" v-bind:class="{active: isPageActive('/home')}">
+        <div class="content">
             <ul class="nav">
                 <li> <router-link tag="md-button" to="/about">About</router-link></li>
                 <li> <router-link tag="md-button" to="/home">Home</router-link></li>
@@ -62,28 +62,23 @@
         font-size: 20px;
     }
 
+
     .content {
+        width: 100%;
         min-height: 100%;
-        display: grid;
-        grid-template-rows: 60px auto;
+        display: block;
         justify-content: center;
         background-color: white;
         border-radius: 30px 30px 0 0;
     }
 
-    .active {
-        min-height: 90%;
-        display: grid;
-        grid-template-rows: 10% auto;
-        justify-content: center;
-        background-color: white;
-        border-radius: 30px 30px 0 0;
-    }
-
-    .nav{
-        padding: 0;
+    .nav {
+        padding: 1em;
+        margin: 0;
         display: flex;
+        border-radius: 30px 30px 0 0;
         list-style-type: none;
+        background-color: white;
         justify-content: center;
     }
 

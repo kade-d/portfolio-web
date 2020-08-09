@@ -21,6 +21,7 @@ module.exports = {
         alias: {
             myApp: path.resolve(__dirname, 'src'),
         }
-    }
+    },
+    mode: 'production'
     // plugin omitted
 }
