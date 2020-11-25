@@ -3,7 +3,7 @@
         <Project_Card
             avatar_image_path="techpoint_sos_challenge.png"
             description="Link Up provides remote employees an office-like experience which facilitates collaboration and social interaction."
-            main_image_path="link_up.png"
+            main_image_path="linkup-demo-1.gif"
             demo_link="https://techpoint-sos-challenge.web.app/#/"
             devpost_link="https://devpost.com/software/workfromhome_techpointsoschallenge"
             link_title="Live Demo"
@@ -40,6 +40,8 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+
 
 </style>

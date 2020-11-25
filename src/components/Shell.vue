@@ -1,7 +1,7 @@
 
 
 <template>
-    <div class="root">
+    <div class="root" v-bind:style="getRootStyle">
         <div class="header">Kade Dentel</div>
         <div class="content">
             <ul class="nav">
@@ -27,6 +27,19 @@
         name: 'Shell',
         components: {
             Home, About, Portfolio
+        },
+        computed: {
+            getRootStyle: function () {
+                if (this.isPageActive("/portfolio")) {
+                    return {
+                        overflow: 'scroll'
+                    }
+                } else {
+                    return {
+                        overflow: 'hidden'
+                    }
+                }
+            }
         },
         methods: {
             isPageActive: function (page){
