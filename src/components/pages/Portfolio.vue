@@ -42,14 +42,6 @@
       tech_stack="C++"
     >
     </Project_Card>
-    <Project_Card
-      description="An API to manage data for Ball State's Shuttle Bus system."
-      main_image_path="shuttle-bus-api.png"
-      title="Ball State's Shuttle Bus API"
-      github_link="https://github.com/kade-d/BusShuttleAPI"
-      tech_stack="Laravel, PHP, MySQL"
-    >
-    </Project_Card>
   </div>
 </template>
 
