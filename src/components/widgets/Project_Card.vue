@@ -10,7 +10,7 @@
                     {{title}}
                 </div>
                 <div class="md-subhead">
-                    <a v-if="demo_link != null" :href="demo_link">{{link_title}}</a>
+                    <a id="demo-link" v-if="demo_link != null" :href="demo_link">{{link_title}}</a>
                 </div>
             </md-card-header>
 
@@ -110,13 +110,18 @@
         padding-bottom: 16px;
     }
 
+    #demo-link {
+        color: #0f679e;;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
     .md-subhead {
         overflow: hidden;
         white-space: nowrap;
     }
 
     .md-card-media {
-        padding: 3em 2em;
         background-color: #CBCBCB;
     }
 

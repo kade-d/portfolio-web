@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Shell from "./components/Shell";
-import {MdButton, MdAvatar, MdCard, MdContent} from 'vue-material/dist/components'
+import { MdButton, MdAvatar, MdCard, MdContent } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
@@ -18,7 +18,8 @@ const routes = [
   { path: '/home', component: Shell },
   { path: '/about', component: Shell },
   { path: '/portfolio', component: Shell },
-  { path: '*', redirect: '/home'}
+  { path: '/resume', component: Shell },
+  { path: '*', redirect: '/home' }
 ]
 
 const router = new VueRouter({

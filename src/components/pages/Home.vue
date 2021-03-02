@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>I'm a full-stack<br/>software developer.</h1>
+        <h1>Software Developer</h1>
         <div class="button-container">
             <router-link id="view-work-button" to="portfolio" tag="md-button">View my work</router-link>
         </div>
