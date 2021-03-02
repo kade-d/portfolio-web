@@ -57,9 +57,9 @@ export default {
 
   computed: {
     getRootStyle: function () {
-      if (this.isPageActive("/portfolio")) {
+      if (this.isPageActive("/portfolio") || this.isPageActive("/resume")) {
         return {
-          overflow: "scroll",
+          "overflow-y": "scroll",
         };
       } else {
         return {
