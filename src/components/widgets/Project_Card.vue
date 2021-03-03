@@ -34,10 +34,10 @@
                     </div>
                 </div>
                 <div class="end">
-                    <a v-if="devpost_link != null" :href="devpost_link">
+                    <a v-if="devpost_link != null" :href="devpost_link" style="margin: auto;">
                         <img class="icon" height="30" width="30" src="../../assets/devpost-logo.png" alt="devpost-logo">
                     </a>
-                    <a v-if="github_link != null" :href="github_link">
+                    <a v-if="github_link != null" :href="github_link" style="margin: auto;">
                         <img class="icon" width="30" src="../../assets/github.png" alt="devpost-logo">
                     </a>
                 </div>
@@ -150,8 +150,8 @@
     }
 
     .end{
-        display: flex;
-        justify-content: flex-end;
+        display: grid;
+        justify-content: right;
         grid-row: 1 / 1;
     }
 
