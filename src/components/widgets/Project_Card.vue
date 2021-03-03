@@ -1,18 +1,20 @@
 <template>
     <div class="wrapper">
         <md-card>
-            <md-card-header>
-                <md-avatar v-if="avatar_image_path != null">
-                    <img  class="avatar-image" :src="require('@/assets/' + avatar_image_path + '')" alt= "Avatar Image">
-                </md-avatar>
+            <div style="padding: 16px; display: grid; grid-template-columns: fit-content(100%) auto">
+                <div v-if="avatar_image_path != null" style="width: 48px; margin-right: 16px;">
+                    <img class="avatar-image" :src="require('@/assets/' + avatar_image_path + '')" alt= "Avatar Image">
+                </div>
 
-                <div class="md-title" id="card_title">
-                    {{title}}
+              <div style="display: grid;">
+                <div class="md-title" id="card_title" style="margin-top: auto;">
+                  {{ title }}
                 </div>
                 <div class="md-subhead">
-                    <a id="demo-link" v-if="demo_link != null" :href="demo_link">{{link_title}}</a>
+                  <a id="demo-link" v-if="demo_link != null" :href="demo_link">{{ link_title }}</a>
                 </div>
-            </md-card-header>
+              </div>
+            </div>
 
             <md-card-media>
                 <img :src="require('@/assets/' + main_image_path + '')" alt="Main Image">
@@ -107,7 +109,6 @@
         font-family: 'Open Sans', sans-serif;
         background-color: white;
         color: black;
-        padding-bottom: 16px;
     }
 
     #demo-link {
