@@ -92,21 +92,8 @@
           headline: "Skills",
           items: [
             {
-              title: "JavaScript",
-            },
-            {
-              title: "C#",
-            },
-            {
-              title: "Java",
-            },
-            {
-              title: "Vue.js",
-            },
-            {
-              title: "C++",
+              title: "JavaScript, C#, Java, Vue.js, C++",
             }
-
           ]
         },
 

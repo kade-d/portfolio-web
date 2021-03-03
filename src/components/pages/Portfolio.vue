@@ -6,8 +6,8 @@
     <Project_Card
       description="
         We developed Merit Engine to explore a new field of financial advising software. 
-        Merit Engine offers a method of crafting and visualizing hypothetical investment strategies, providing
-        advisors the ability to determine what strategy best fits their clients based on real data visualizations."
+        Using Merit Engine, advisors can craft and visualize hypothetical investment strategies, providing
+        key information for determining what strategy best fits each client."
       main_image_path="capstone.png"
       title="Capstone Project"
       tech_stack="C#, ASP.NET Core, Vue.js"
