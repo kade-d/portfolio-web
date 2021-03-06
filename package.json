@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "webpack-dev-server"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-    "vue-material": "^1.0.0-beta-14"
+    "vuetify": "^2.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -25,10 +25,12 @@
     "extract-loader": "^5.1.0",
     "file-loader": "^6.0.0",
     "postcss-loader": "^3.0.0",
-    "sass": "^1.26.10",
-    "sass-loader": "^9.0.2",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.2.2",
     "vue-router": "^3.3.4",
     "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"

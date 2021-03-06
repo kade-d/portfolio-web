@@ -1,28 +1,26 @@
 <template>
     <div class="wrapper">
-        <md-card>
+        <v-card max-width="700px">
             <div style="padding: 16px; display: grid; grid-template-columns: fit-content(100%) auto">
                 <div v-if="avatar_image_path != null" style="width: 48px; margin-right: 16px;">
-                    <img class="avatar-image" :src="require('@/assets/' + avatar_image_path + '')" alt= "Avatar Image">
+                    <v-img class="avatar-image" :src="require('@/assets/' + avatar_image_path + '')" alt= "Avatar Image"/>
                 </div>
 
               <div style="display: grid;">
-                <div class="md-title" id="card_title" style="margin-top: auto;">
+                <v-card-title class="md-title" id="card_title" style="margin-top: auto;">
                   {{ title }}
-                </div>
+                </v-card-title>
                 <div class="md-subhead">
                   <a id="demo-link" v-if="demo_link != null" :href="demo_link">{{ link_title }}</a>
                 </div>
               </div>
             </div>
 
-            <md-card-media>
-                <img :src="require('@/assets/' + main_image_path + '')" alt="Main Image">
-            </md-card-media>
+            <v-img :src="require('@/assets/' + main_image_path + '')" alt="Main Image"/>
 
-            <md-card-content>
+            <v-card-text>
                 {{description}}
-            </md-card-content>
+            </v-card-text>
 
 
             <div class="trailing-content">
@@ -35,16 +33,16 @@
                 </div>
                 <div class="end">
                     <a v-if="devpost_link != null" :href="devpost_link" style="margin: auto;">
-                        <img class="icon" height="30" width="30" src="../../assets/devpost-logo.png" alt="devpost-logo">
+                        <v-img class="icon" height="30" width="30" src="../../assets/devpost-logo.png" alt="devpost-logo"/>
                     </a>
                     <a v-if="github_link != null" :href="github_link" style="margin: auto;">
-                        <img class="icon" width="30" src="../../assets/github.png" alt="devpost-logo">
+                        <v-img class="icon" width="30" src="../../assets/github.png" alt="devpost-logo"/>
                     </a>
                 </div>
 
             </div>
 
-        </md-card>
+        </v-card>
     </div>
 </template>
 

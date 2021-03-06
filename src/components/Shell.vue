@@ -4,26 +4,26 @@
     <div class="sidebar">
       <div id="desktop-header">Kade Dentel</div>
       <ul id="desktop-nav">
-        <li><router-link tag="md-button" to="/home">Home</router-link></li>
+        <li><v-btn text tag="md-button" to="/home">Home</v-btn></li>
         <li>
-          <router-link tag="md-button" to="/portfolio">Portfolio</router-link>
+          <v-btn text tag="md-button" to="/portfolio">Portfolio</v-btn>
         </li>
         <li>
-          <router-link tag="md-button" to="/resume">Resume</router-link>
+          <v-btn text tag="md-button" to="/resume">Resume</v-btn>
         </li>
-        <li><router-link tag="md-button" to="/about">About</router-link></li>
+        <li><v-btn text tag="md-button" to="/about">About</v-btn></li>
       </ul>
     </div>
     <div class="content-shell">
       <div class="content">
         <ul id="mobile-nav">
-          <li><router-link tag="md-button" to="/about">About</router-link></li>
-          <li><router-link tag="md-button" to="/home">Home</router-link></li>
+          <li><v-btn tag="md-button" to="/about">About</v-btn></li>
+          <li><v-btn tag="md-button" to="/home">Home</v-btn></li>
           <li>
-            <router-link tag="md-button" to="/portfolio">Portfolio</router-link>
+            <v-btn tag="md-button" to="/portfolio">Portfolio</v-btn>
           </li>
           <li>
-            <router-link tag="md-button" to="/resume">Resume</router-link>
+            <v-btn tag="md-button" to="/resume">Resume</v-btn>
           </li>
         </ul>
         <home v-if="isPageActive('/home')"></home>
@@ -176,6 +176,10 @@ img {
     margin: 0;
     list-style-type: none;
     justify-content: center;
+  }
+
+  #desktop-nav li {
+    margin: 0 0 6px 0;
   }
 
   .sidebar {

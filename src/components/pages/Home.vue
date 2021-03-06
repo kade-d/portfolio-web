@@ -2,7 +2,7 @@
     <div>
         <h1>Software Developer</h1>
         <div class="button-container">
-            <router-link id="view-work-button" to="portfolio" tag="md-button">View my work</router-link>
+            <v-btn id="view-work-button" to="portfolio" tag="md-button">View my work</v-btn>
         </div>
     </div>
 </template>
