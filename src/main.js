@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Shell from "./components/Shell";
 import vuetify from './plugins/vuetify';
+import "./assets/global-style.css"
 
 
 Vue.use(VueRouter)

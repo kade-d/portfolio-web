@@ -1,9 +1,9 @@
 <template>
   <div id="resume-root" style="display: grid">
-    <div class="md-display-2" style="margin: auto; padding: 32px">Resume</div>
+    <div :class="`text-${$vuetify.breakpoint.name}-h4`" style="margin: auto; padding: 32px">Resume</div>
     <div class="resume-contents" style="padding-left: 10%;">
       <div v-for="(point, index) in resumePoints" :key="index">
-        <ResumeItem :point="point"/>
+        <ResumeItem style="margin-top: 24px;" :point="point"/>
       </div>
     </div>
   </div>
@@ -108,10 +108,6 @@
   display: flex;
   padding: 1em;
   justify-content: center;
-}
-
-.md-card-media {
-  overflow: hidden;
 }
 
 #my-media {

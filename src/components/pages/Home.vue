@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Software Developer</h1>
+        <div id="headline" :class="`text-${$vuetify.breakpoint.name}-h3`">Software Developer</div>
         <div class="button-container">
             <v-btn id="view-work-button" to="portfolio" tag="md-button">View my work</v-btn>
         </div>
@@ -18,14 +18,11 @@
 
 <style lang="scss" scoped>
 
-    h1{
-        text-align: center;
-        font-weight: normal;
-        padding-top: 40px;
-        padding-bottom: 10px;
-        padding-left: .5em;
-        padding-right: .5em;
-        line-height: normal;
+    #headline{
+      text-align: center;
+      font-weight: normal;
+      padding: 3em 0 .75em;
+      line-height: normal;
     }
 
     .button-container {
