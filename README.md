@@ -1,5 +1,3 @@
-# portfolio
+# Run locally
 
-## Project setup
-
-`vue ui`
+`pnpm run dev`
