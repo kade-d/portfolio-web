@@ -1,0 +1,12 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+# (Please don't specify an indent_size here; that has too many unintended consequences.)
+
+# Code files
+[*.{ts,vue,css}]
+indent_size = 2
+insert_final_newline = true
+charset = utf-8-bom

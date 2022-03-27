@@ -1,8 +1,8 @@
 # Run
 
 1. `npm install -g pnpm`
-
-2. `pnpm run serve`
+1. `pnpm install`
+1. `pnpm run serve`
 
 # Stack
 
