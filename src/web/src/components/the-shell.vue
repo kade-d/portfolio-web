@@ -19,11 +19,13 @@
   &__top {
     height: 3rem;
     background-color: $color-foreground;
+    color: $color-text-foreground;
   }
 
   &__content {
     min-height: calc(100vh - 3rem);
     background-color: $color-background;
+    color: $color-text-background;
   }
 }
 </style>
