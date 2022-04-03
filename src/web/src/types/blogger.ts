@@ -14,6 +14,12 @@ interface Entry {
   media$thumbnail: {
     url: string;
   };
+  link: Link[];
+}
+
+interface Link {
+  title: string;
+  href: string;
 }
 
 interface Author {
