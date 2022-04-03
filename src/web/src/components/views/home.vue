@@ -1,16 +1,8 @@
 <template>
-  <div>
-    <base-card class="panel">
-      <template #title> Home </template>
-      <template #content> Kade Dentel </template>
-    </base-card>
-  </div>
+  <div>home</div>
 </template>
 
-<script setup lang="ts">
-import { Disclosure } from "@headlessui/vue";
-import BaseCard from "@/components/library/base-card.vue";
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .panel {

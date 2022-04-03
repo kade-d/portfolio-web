@@ -5,7 +5,7 @@ import About from "@/components/views/about.vue";
 
 const topLevelRoutes: RouteRecordRaw[] = [
   {
-    path: "/home",
+    path: "/",
     component: Home,
     name: "Home",
   },
