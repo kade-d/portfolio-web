@@ -1,16 +1,26 @@
 <template>
   <div class="the-shell">
-    <div class="the-shell__top">
+    <div
+      class="the-shell__top"
+      :style="`color: ${theme.textColorBase}; background-color: ${theme.primaryColor}`"
+    >
       <slot name="top"></slot>
     </div>
 
-    <div class="the-shell__content">
+    <div
+      class="the-shell__content"
+      :style="`color: ${theme.textColorBase}; background-color: ${theme.bodyColor}`"
+    >
       <slot></slot>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useThemeVars } from "naive-ui";
+
+const theme = useThemeVars();
+</script>
 
 <style scoped lang="scss">
 .the-shell {
@@ -18,14 +28,10 @@
 
   &__top {
     height: 3rem;
-    background-color: $color-foreground;
-    color: $color-text-foreground;
   }
 
   &__content {
     min-height: calc(100vh - 3rem);
-    background-color: $color-background;
-    color: $color-text-background;
   }
 }
 </style>
