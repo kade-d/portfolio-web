@@ -1,26 +1,33 @@
 <template>
   <n-config-provider
-    :theme="useDarkTheme ? darkTheme : lightTheme"
+    :theme="theme === Theme.Dark ? darkTheme : lightTheme"
     :theme-overrides="themeOverrides"
   >
     <the-shell>
       <template #top>
-        <n-space class="nav" justify="center" align="center" :size="[50, 0]">
-          <router-link
-            v-for="r in topLevelRoutes"
-            :key="r.name"
-            :to="r.path"
-            custom
-            v-slot="{ href, route, navigate, isActive }"
-          >
-            <n-button text @click="navigate()">
-              {{ route.name }}
-            </n-button>
-          </router-link>
-        </n-space>
-        <n-button @click="useDarkTheme = !useDarkTheme">
-          Toggle Dark Theme
-        </n-button>
+        <div class="top">
+          <div class="top__left"></div>
+          <div class="top__middle">
+            <router-link
+              v-for="r in topLevelRoutes"
+              :key="r.name"
+              :to="r.path"
+              custom
+              v-slot="{ href, route, navigate, isActive }"
+            >
+              <n-button text @click="navigate()">
+                {{ route.name }}
+              </n-button>
+            </router-link>
+          </div>
+          <div class="top__right">
+            <theme-switch
+              class="top__theme-switch"
+              :theme="theme"
+              @theme-changed="(newTheme) => (theme = newTheme)"
+            ></theme-switch>
+          </div>
+        </div>
       </template>
       <router-view></router-view>
     </the-shell>
@@ -36,9 +43,10 @@ import {
   lightTheme,
   NButton,
   NConfigProvider,
-  NSpace,
 } from "naive-ui";
-import { ref } from "vue";
+import Theme from "@/types/theme";
+import { Ref, ref } from "vue";
+import ThemeSwitch from "./components/library/theme-switch.vue";
 
 const themeOverrides: GlobalThemeOverrides = {
   common: {
@@ -46,12 +54,30 @@ const themeOverrides: GlobalThemeOverrides = {
   },
 };
 
-const useDarkTheme = ref(false);
+const theme: Ref<Theme> = ref(Theme.Light);
 </script>
 
 <style scoped lang="scss">
 .nav {
   height: 100%;
   padding-left: 1rem;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+
+  &__middle {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 1rem;
+  }
 }
 </style>
