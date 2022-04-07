@@ -44,6 +44,7 @@ function toggleTheme() {
   height: 18px;
   background-color: white;
   border-radius: 16px;
+  user-select: none;
 
   .icon {
     width: 100%;
@@ -60,21 +61,18 @@ function toggleTheme() {
 }
 
 // ANIMATION
-.v-enter-active,
-.v-leave-active {
-  transition: all 0.25s ease;
+.v-enter-active {
+  transition: all 0.4s ease;
 }
 
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
-  &.icon {
-    &__moon {
-      transform: translateX(-10px);
-    }
-    &__sun {
-      transform: translateX(10px);
-    }
+  &.icon__moon {
+    transform: translateX(-10px) rotate(180deg);
+  }
+  &.icon__sun {
+    transform: translateX(10px) rotate(-90deg);
   }
 }
 </style>
