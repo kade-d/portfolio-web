@@ -47,10 +47,11 @@ import {
 import Theme from "@/types/theme";
 import { Ref, ref } from "vue";
 import ThemeSwitch from "./components/library/theme-switch.vue";
+import variables from "./scss/variables";
 
 const themeOverrides: GlobalThemeOverrides = {
   common: {
-    primaryColor: "#4f5d7e",
+    primaryColor: variables.colorForeground,
   },
 };
 

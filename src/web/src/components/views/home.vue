@@ -1,5 +1,5 @@
 <template>
-  <div>home</div>
+  <div>I'M A SOFTWARE DEVELOPER</div>
 </template>
 
 <script setup lang="ts"></script>
