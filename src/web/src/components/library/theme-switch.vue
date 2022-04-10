@@ -45,6 +45,7 @@ function toggleTheme() {
   background-color: white;
   border-radius: 16px;
   user-select: none;
+  cursor: pointer;
 
   .icon {
     width: 100%;

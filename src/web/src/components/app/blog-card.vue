@@ -2,7 +2,7 @@
   <div class="blog-card">
     <n-card v-if="latestEntry">
       <template #cover>
-        <image-helper :src="postThumbnail" />
+        <image-helper :src="postThumbnail ?? ''" />
       </template>
       <template #header>
         <div class="blog-card__title">
@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { NCard, NIcon, NSpin, useThemeVars } from "naive-ui";
+import { NCard, NSpin } from "naive-ui";
 
 import * as $ from "jquery";
 import { computed, onMounted, Ref, ref } from "vue";

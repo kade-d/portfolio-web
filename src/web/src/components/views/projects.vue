@@ -3,14 +3,9 @@
     <div class="projects__grid">
       <project-card
         v-for="project of projects"
-        :title="project.title"
+        :project="project"
         class="projects__card"
       >
-        <image-helper
-          class="projects__image"
-          v-for="imagePath of project.imagePaths"
-          :src="imagePath"
-        />
       </project-card>
     </div>
   </div>
@@ -18,13 +13,15 @@
 
 <script setup lang="ts">
 import ProjectCard from "../library/project-card.vue";
+import Project from "@/types/project";
 import { Ref, ref } from "vue";
-import ImageHelper from "../library/image-helper.vue";
 
 const projects: Ref<Project[]> = ref([
   {
     title: "Replay Review",
     imagePaths: ["./../../assets/projects/vod-review/vod-review.jpeg"],
+    link: "https://bakkesplugins.com/plugins/view/173",
+    githubLink: "https://github.com/kade-d/ReplayReview",
   },
   {
     title: "Replay Review",
@@ -35,11 +32,6 @@ const projects: Ref<Project[]> = ref([
     imagePaths: ["./../../assets/projects/vod-review/vod-review.jpeg"],
   },
 ]);
-
-interface Project {
-  title: string;
-  imagePaths: string[];
-}
 </script>
 
 <style scoped lang="scss">

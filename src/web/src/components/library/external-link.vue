@@ -6,7 +6,7 @@
       :color="isIconHovered ? theme.iconColorHover : ''"
       @click="navigate(link)"
     >
-      <external-link-icon></external-link-icon>
+      <slot><external-link-icon></external-link-icon></slot>
     </n-icon>
   </div>
 </template>
