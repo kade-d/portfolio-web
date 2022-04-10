@@ -11,9 +11,7 @@
         class="the-shell__content"
         :style="`color: ${theme.textColorBase}; background-color: ${theme.bodyColor}`"
       >
-        <n-scrollbar>
-          <slot></slot>
-        </n-scrollbar>
+        <slot></slot>
       </div>
     </n-element>
   </div>

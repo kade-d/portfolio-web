@@ -1,17 +1,20 @@
 <template>
-  <div class="projects">
-    <div class="projects__grid">
-      <project-card
-        v-for="project of projects"
-        :project="project"
-        class="projects__card"
-      >
-      </project-card>
+  <n-scrollbar>
+    <div class="projects">
+      <div class="projects__grid">
+        <project-card
+          v-for="project of projects"
+          :project="project"
+          class="projects__card"
+        >
+        </project-card>
+      </div>
     </div>
-  </div>
+  </n-scrollbar>
 </template>
 
 <script setup lang="ts">
+import { NScrollbar } from "naive-ui";
 import ProjectCard from "../library/project-card.vue";
 import Project from "@/types/project";
 import { Ref, ref } from "vue";

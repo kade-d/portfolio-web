@@ -21,7 +21,9 @@
 </template>
 
 <script setup lang="ts">
-import ExternalLink from "./external-link.vue";
+import ExternalLink from "@/components/library/external-link.vue";
+
+//todo: fix github link for dark mode
 
 defineProps<{
   link: string;
