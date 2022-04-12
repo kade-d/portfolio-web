@@ -1,16 +1,10 @@
 <template>
   <div class="the-shell">
     <n-element>
-      <div
-        class="the-shell__top"
-        :style="`color: ${theme.textColorBase}; background-color: ${theme.primaryColor}`"
-      >
+      <div class="the-shell__top" :style="`color: ${theme.textColorBase}; `">
         <slot name="top"></slot>
       </div>
-      <div
-        class="the-shell__content"
-        :style="`color: ${theme.textColorBase}; background-color: ${theme.bodyColor}`"
-      >
+      <div class="the-shell__content" :style="`color: ${theme.textColorBase};`">
         <slot></slot>
       </div>
     </n-element>
@@ -18,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeVars, NElement, NScrollbar } from "naive-ui";
+import { useThemeVars, NElement } from "naive-ui";
 
 const theme = useThemeVars();
 </script>
@@ -29,15 +23,16 @@ const theme = useThemeVars();
   width: 100%;
 
   &__top {
-    height: 3rem;
-    position: absolute;
+    height: 4rem;
+    position: fixed;
     width: 100%;
+    z-index: 1;
   }
 
   &__content {
     position: absolute;
     width: 100%;
-    top: 3rem;
+    top: 4rem;
     bottom: 0;
   }
 }

@@ -6,7 +6,7 @@
         'oval--light': theme === Theme.Light,
         'oval--dark': theme === Theme.Dark,
       }"
-      :style="`background-color: ${theme === Theme.Light ? 'white' : 'black'}`"
+      :style="`background-color: ${theme === Theme.Light ? 'grey' : 'black'}`"
     >
       <n-icon class="icon" size="18px" @click="toggleTheme">
         <transition>

@@ -5,80 +5,45 @@
   >
     <the-shell>
       <template #top>
-        <div class="top">
-          <div class="top__left"></div>
-          <div class="top__middle">
-            <router-link
-              v-for="r in topLevelRoutes"
-              :key="r.name"
-              :to="r.path"
-              custom
-              v-slot="{ href, route, navigate, isActive }"
-            >
-              <n-button text @click="navigate()">
-                {{ route.name }}
-              </n-button>
-            </router-link>
-          </div>
-          <div class="top__right">
-            <theme-switch
-              class="top__theme-switch"
-              :theme="theme"
-              @theme-changed="(newTheme) => (theme = newTheme)"
-            ></theme-switch>
-          </div>
-        </div>
+        <the-header
+          :selected-theme="theme"
+          @theme-changed="(newTheme) => (theme = newTheme)"
+        ></the-header>
       </template>
-      <router-view></router-view>
+      <hero-background>
+        <router-view></router-view>
+      </hero-background>
     </the-shell>
   </n-config-provider>
 </template>
 
 <script setup lang="ts">
 import TheShell from "./components/the-shell.vue";
-import topLevelRoutes from "./router/top-level-routes";
 import {
   darkTheme,
   GlobalThemeOverrides,
   lightTheme,
-  NButton,
   NConfigProvider,
 } from "naive-ui";
 import Theme from "@/types/theme";
 import { Ref, ref } from "vue";
-import ThemeSwitch from "./components/library/theme-switch.vue";
-import variables from "./scss/variables";
+import TheHeader from "./components/app/the-header.vue";
+import HeroBackground from "./components/library/hero-background.vue";
 
 const themeOverrides: GlobalThemeOverrides = {
   common: {
-    primaryColor: variables.colorForeground,
+    baseColor: "",
+    primaryColor: "rgb(81, 162, 233)",
+    // todo: fix boxShadow1 for dark mode
   },
 };
 
-const theme: Ref<Theme> = ref(Theme.Light);
+const theme: Ref<Theme> = ref(Theme.Dark);
 </script>
 
 <style scoped lang="scss">
 .nav {
   height: 100%;
   padding-left: 1rem;
-}
-
-.top {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  height: 100%;
-
-  &__middle {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__right {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin-right: 1rem;
-  }
 }
 </style>

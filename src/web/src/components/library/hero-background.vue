@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-background" @mousemove="(e) => updateMouse(e)">
+  <div class="hero-background">
     <canvas id="canvas">
       <n-element> </n-element>
     </canvas>
@@ -13,14 +13,27 @@
 import Dot from "@/types/animation/dot";
 import Vector from "@/types/animation/vector";
 import Particle from "@/util/particle";
-import { NElement } from "naive-ui";
-import { onMounted, ref } from "vue";
+import { useMouse } from "@vueuse/core";
+import { NElement, useThemeVars } from "naive-ui";
+import { onMounted, ref, watch } from "vue";
 
 onMounted(() => {
   initialize();
 });
 
-const numberOfDots = 100;
+const theme = useThemeVars();
+
+const mousePos = useMouse();
+
+watch(mousePos.x, () => {
+  mouse.x = mousePos.x.value;
+});
+
+watch(mousePos.y, () => {
+  mouse.y = mousePos.y.value;
+});
+
+const numberOfDots = 200;
 const screen: Vector = { x: document.body.scrollWidth, y: window.innerHeight }; //todo: this makes the canvas taller than the available room
 const mouse: Vector = { x: screen.x / 2, y: screen.y / 2 };
 
@@ -39,7 +52,7 @@ function initialize() {
   canvas.height = screen.y;
   canvas.style.display = "block";
   context.lineWidth = 0.3;
-  context.strokeStyle = "rgb(81, 162, 233)";
+  context.strokeStyle = theme.value.primaryColor;
 
   dots = Array.from(
     { length: numberOfDots },
@@ -50,7 +63,7 @@ function initialize() {
           y: getRandomIntInclusive(0, screen.y),
         },
         Math.random() * 4,
-        "rgb(81, 162, 233)",
+        theme.value.primaryColor,
         { x: -0.5 + Math.random(), y: -0.5 + Math.random() },
         mouse,
         screen
@@ -65,6 +78,8 @@ function render() {
     return;
   }
   context.clearRect(0, 0, canvas.width, canvas.height);
+  context.fillStyle = theme.value.bodyColor;
+  context.fillRect(0, 0, canvas.width, canvas.height);
 
   for (let dot of dots) {
     dot.draw(context);
@@ -86,7 +101,11 @@ function getRandomIntInclusive(min: number, max: number) {
 
 <style scoped lang="scss">
 #canvas {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 0;
 }
 

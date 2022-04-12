@@ -36,7 +36,7 @@ export default class Particle implements Dot {
       (this.position.x - this.mouse.x) ** 2 +
         (this.position.y - this.mouse.y) ** 2
     );
-    const distanceRatio = dotDistance / (window.innerWidth / 1.7);
+    const distanceRatio = dotDistance / (window.innerWidth / 5);
 
     // this removes the ending parentheses from the rgb color and adds an opacity
     context.fillStyle = `${this.color.slice(0, -1)},${1 - distanceRatio})`;
