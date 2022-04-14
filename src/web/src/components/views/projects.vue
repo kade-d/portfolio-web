@@ -22,17 +22,17 @@ import { Ref, ref } from "vue";
 const projects: Ref<Project[]> = ref([
   {
     title: "Replay Review",
-    imagePaths: ["./../../assets/projects/vod-review/vod-review.jpeg"],
+    imagePaths: ["./../../assets/projects/vod-review/vod-review.jpg"],
     link: "https://bakkesplugins.com/plugins/view/173",
     githubLink: "https://github.com/kade-d/ReplayReview",
   },
   {
-    title: "Replay Review",
-    imagePaths: ["./../../assets/projects/vod-review/vod-review.jpeg"],
+    title: "Merit Engine",
+    imagePaths: ["./../../assets/projects/merit-engine/merit-engine.png"],
   },
   {
-    title: "Replay Review",
-    imagePaths: ["./../../assets/projects/vod-review/vod-review.jpeg"],
+    title: "Ohana",
+    imagePaths: ["./../../assets/projects/ohana/ohana.png"],
   },
 ]);
 </script>
@@ -41,11 +41,12 @@ const projects: Ref<Project[]> = ref([
 .projects {
   padding: 1rem 5rem;
   &__grid {
-    display: flex;
+    display: grid;
     justify-content: center;
     width: 100%;
     flex-basis: 0;
     flex-direction: row;
+    grid-auto-flow: column;
     gap: 1rem;
   }
 }
