@@ -23,7 +23,7 @@
     <div class="header__right">
       <theme-switch
         class="header__theme-switch"
-        :theme="selectedTheme"
+        :selected-theme="selectedTheme"
         @theme-changed="(newTheme: Theme) => emit('themeChanged', newTheme)"
       ></theme-switch>
     </div>
