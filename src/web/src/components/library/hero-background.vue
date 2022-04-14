@@ -1,6 +1,6 @@
 <template>
   <div class="hero-background">
-    <canvas id="canvas">
+    <canvas id="canvas" :style="`background-color: ${theme.bodyColor};`">
       <n-element> </n-element>
     </canvas>
     <div class="hero-background__content">
@@ -34,19 +34,27 @@ watch(mousePos.y, () => {
 });
 
 const numberOfDots = 200;
-const screen: Vector = { x: document.body.scrollWidth, y: window.innerHeight }; //todo: this makes the canvas taller than the available room
-const mouse: Vector = { x: screen.x / 2, y: screen.y / 2 };
+let screen: Vector = { x: 0, y: 0 };
+let mouse: Vector = { x: 0, y: 0 };
 
 let canvas: HTMLCanvasElement | null | undefined;
 let context: CanvasRenderingContext2D | null | undefined;
 let dots: Dot[];
 
 function initialize() {
+  screen = {
+    x: document.body.scrollWidth,
+    y: window.innerHeight,
+  };
+  mouse = { x: screen.x / 2, y: screen.y / 2 };
   canvas = document.getElementById("canvas") as HTMLCanvasElement;
   context = canvas?.getContext("2d");
+  console.log("initialize");
   if (!canvas || !context) {
     return;
   }
+  console.log(`x: ${screen.x}`);
+  console.log(`y: ${screen.y}`);
 
   canvas.width = screen.x;
   canvas.height = screen.y;
@@ -71,6 +79,14 @@ function initialize() {
   );
 
   const draw = setInterval(render, 1000 / 60.0);
+  clearCanvasOnResize(draw);
+}
+
+function clearCanvasOnResize(timer: NodeJS.Timer) {
+  window.onresize = () => {
+    clearInterval(timer);
+    initialize();
+  };
 }
 
 function render() {
@@ -78,8 +94,6 @@ function render() {
     return;
   }
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = theme.value.bodyColor;
-  context.fillRect(0, 0, canvas.width, canvas.height);
 
   for (let dot of dots) {
     dot.draw(context);
