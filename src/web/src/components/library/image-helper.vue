@@ -4,7 +4,7 @@
     <img
       v-show="isLoaded"
       ref="image"
-      :src="getImage(src)"
+      :src="src"
       @error="onLoadError"
       @load="isLoaded = true"
     />
@@ -16,21 +16,13 @@ import { ref } from "vue";
 import { NSpin } from "naive-ui";
 
 const props = defineProps<{
-  src: string;
+  src: string; // must follow vite specific static asset loading @see https://vitejs.dev/guide/assets.html#new-url-url-import-meta-url
   fallbackSrc?: string;
 }>();
 
 const image = ref(); // element ref
 
 const isLoaded = ref(false);
-
-/**
- * image urls MUST start with "./ or ../"
- * @see https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#imports-must-start-with--or-
- */
-function getImage(path: string) {
-  return new URL(path, import.meta.url).href; // vite specific static asset loading @see https://vitejs.dev/guide/assets.html#new-url-url-import-meta-url
-}
 
 function onLoadError() {
   image.value.target.src = props.fallbackSrc;

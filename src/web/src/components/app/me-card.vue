@@ -2,7 +2,7 @@
   <div class="me-card">
     <n-card>
       <template #cover>
-        <image-helper :src="`${publicPath}kade-dentel.jpg`" />
+        <image-helper :src="meImage" />
       </template>
       <template #header>
         <div class="blog-card__title">Kade Dentel</div>
@@ -22,7 +22,9 @@ import { NCard } from "naive-ui";
 import { computed } from "vue";
 import ImageHelper from "../library/image-helper.vue";
 
-const publicPath = computed(() => import.meta.env.BASE_URL);
+const meImage = computed(
+  () => new URL("../../assets/kade-dentel.jpg", import.meta.url).href
+);
 </script>
 
 <style scoped lang="scss"></style>

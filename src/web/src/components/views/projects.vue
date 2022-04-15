@@ -22,17 +22,29 @@ import { Ref, ref } from "vue";
 const projects: Ref<Project[]> = ref([
   {
     title: "Replay Review",
-    imagePaths: ["./../../assets/projects/vod-review/vod-review.jpg"],
+    imagePaths: [
+      new URL(
+        "../../assets/projects/vod-review/vod-review.jpg",
+        import.meta.url
+      ).href,
+    ],
     link: "https://bakkesplugins.com/plugins/view/173",
     githubLink: "https://github.com/kade-d/ReplayReview",
   },
   {
     title: "Merit Engine",
-    imagePaths: ["./../../assets/projects/merit-engine/merit-engine.png"],
+    imagePaths: [
+      new URL(
+        "../../assets/projects/merit-engine/merit-engine.png",
+        import.meta.url
+      ).href,
+    ],
   },
   {
     title: "Ohana",
-    imagePaths: ["./../../assets/projects/ohana/ohana.png"],
+    imagePaths: [
+      new URL("../../assets/projects/ohana/ohana.png", import.meta.url).href,
+    ],
   },
 ]);
 </script>
