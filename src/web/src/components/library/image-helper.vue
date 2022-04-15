@@ -41,6 +41,7 @@ function onLoadError() {
 .image {
   display: flex;
   justify-content: center;
+  object-fit: cover;
   &__spinner {
     margin: 3rem;
   }

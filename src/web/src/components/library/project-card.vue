@@ -43,8 +43,5 @@ defineProps<{
     display: flex;
     gap: 0.5rem;
   }
-  &__image {
-    object-fit: fill;
-  }
 }
 </style>

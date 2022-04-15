@@ -49,12 +49,9 @@ function initialize() {
   mouse = { x: screen.x / 2, y: screen.y / 2 };
   canvas = document.getElementById("canvas") as HTMLCanvasElement;
   context = canvas?.getContext("2d");
-  console.log("initialize");
   if (!canvas || !context) {
     return;
   }
-  console.log(`x: ${screen.x}`);
-  console.log(`y: ${screen.y}`);
 
   canvas.width = screen.x;
   canvas.height = screen.y;

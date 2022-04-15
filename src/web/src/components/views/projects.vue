@@ -46,7 +46,7 @@ const projects: Ref<Project[]> = ref([
     width: 100%;
     flex-basis: 0;
     flex-direction: row;
-    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 }

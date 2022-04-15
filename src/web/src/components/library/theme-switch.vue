@@ -2,7 +2,7 @@
   <div class="theme-switch">
     <n-icon
       class="theme-switch__icon"
-      size="32px"
+      size="2rem"
       :color="
         selectedTheme === Theme.Light ? theme.primaryColor : theme.primaryColor
       "
