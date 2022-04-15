@@ -16,7 +16,7 @@ jobs:
           version: 6.0.2
       - name: Deploy to live environment
         working-directory: src/web
-        run: pnpm && pnpm run build
+        run: pnpm install && pnpm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
