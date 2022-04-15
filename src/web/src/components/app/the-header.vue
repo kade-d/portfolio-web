@@ -49,13 +49,14 @@ const theme = useThemeVars();
 <style scoped lang="scss">
 .header {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 10% 80% 10%;
   height: 100%;
 
   &__middle {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap: 10%;
   }
 
   &__right {
