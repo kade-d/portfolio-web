@@ -1,9 +1,10 @@
 <template>
-  <div class="image">
+  <div class="image-helper">
     <n-spin v-if="!isLoaded" class="image__spinner"></n-spin>
     <img
       v-show="isLoaded"
       ref="image"
+      class="image-helper__image"
       :src="src"
       @error="onLoadError"
       @load="isLoaded = true"
@@ -30,12 +31,17 @@ function onLoadError() {
 </script>
 
 <style scoped lang="scss">
-.image {
+.image-helper {
   display: flex;
   justify-content: center;
   object-fit: cover;
   &__spinner {
     margin: 3rem;
+  }
+  &__image {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 </style>
