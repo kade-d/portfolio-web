@@ -8,7 +8,6 @@
 
 <style scoped lang="scss">
 .m-badge {
-  border: solid 1px white;
-  padding: 1rem;
+  display: flex;
 }
 </style>

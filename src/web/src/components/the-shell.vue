@@ -1,18 +1,16 @@
 <template>
   <div class="the-shell">
-    <n-element>
-      <div class="the-shell__top" :style="`color: ${theme.textColorBase}; `">
-        <slot name="top"></slot>
-      </div>
-      <div class="the-shell__content" :style="`color: ${theme.textColorBase};`">
-        <slot></slot>
-      </div>
-    </n-element>
+    <div class="the-shell__top" :style="`color: ${theme.textColorBase}; `">
+      <slot name="top"></slot>
+    </div>
+    <div class="the-shell__content" :style="`color: ${theme.textColorBase};`">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useThemeVars, NElement } from "naive-ui";
+import { useThemeVars } from "naive-ui";
 
 const theme = useThemeVars();
 </script>

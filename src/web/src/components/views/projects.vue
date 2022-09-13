@@ -5,13 +5,15 @@
         <n-h1>Projects</n-h1>
       </div>
       <div class="projects__content">
-        <div class="projects__badges">
-          <m-badge v-for="badge of badges" :key="badge.image">
-            <template #image>
-              <image-helper :src="badge.image"></image-helper>
-            </template>
-          </m-badge>
-        </div>
+        <n-element class="projects__badges-wrapper">
+          <div class="projects__badges">
+            <m-badge v-for="badge of badges" :key="badge.image">
+              <template #image>
+                <image-helper :src="badge.image"></image-helper>
+              </template>
+            </m-badge>
+          </div>
+        </n-element>
         <div class="projects__grid">
           <project-card
             v-for="project of projects"
@@ -31,7 +33,7 @@ import ProjectCard from "@/components/library/project-card.vue";
 
 import Badge from "@/types/badge";
 import Project from "@/types/project";
-import { NH1, NScrollbar } from "naive-ui";
+import { NH1, NScrollbar, NElement } from "naive-ui";
 import { Ref, ref } from "vue";
 import ImageHelper from "../library/image-helper.vue";
 
@@ -100,10 +102,20 @@ const badges: Badge[] = [
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
+  &__badges-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   &__badges {
     display: grid;
+    padding: 1rem 2rem;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem;
+    border: dashed 4px var(--primary-color);
+    border-radius: 16px;
+    width: 50%;
+    gap: 2rem;
   }
 }
 </style>
