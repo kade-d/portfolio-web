@@ -1,10 +1,15 @@
 <template>
   <n-scrollbar>
     <div class="projects">
-      <div class="projects__title">
-        <n-h1>Projects</n-h1>
-      </div>
       <div class="projects__content">
+        <div class="projects__grid">
+          <project-card
+            v-for="project of projects"
+            :project="project"
+            class="projects__card"
+          >
+          </project-card>
+        </div>
         <n-element class="projects__badges-wrapper">
           <div class="projects__badges">
             <m-badge v-for="badge of badges" :key="badge.image">
@@ -14,14 +19,6 @@
             </m-badge>
           </div>
         </n-element>
-        <div class="projects__grid">
-          <project-card
-            v-for="project of projects"
-            :project="project"
-            class="projects__card"
-          >
-          </project-card>
-        </div>
       </div>
     </div>
   </n-scrollbar>
@@ -86,22 +83,43 @@ const badges: Badge[] = [
 
 <style scoped lang="scss">
 .projects {
-  padding: 1rem 5rem;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  @media screen and (min-width: 900px) {
+    padding: 2rem 5rem 0 5rem;
+  }
 
   &__content {
     display: grid;
-    gap: 3rem;
+    justify-items: center;
+    gap: 1rem;
+    width: 70%;
+    @media screen and (min-width: 500px) {
+      gap: 3rem;
+      width: 100%;
+    }
   }
 
   &__grid {
     display: grid;
-    justify-content: center;
-    width: 100%;
+    gap: 1rem;
     flex-basis: 0;
     flex-direction: row;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media screen and (max-width: 900px) and (min-width: 500px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
+
   &__badges-wrapper {
     display: flex;
     justify-content: center;
@@ -110,12 +128,17 @@ const badges: Badge[] = [
 
   &__badges {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: dashed 4px var(--primary-color);
+    display: grid;
     padding: 1rem 2rem;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    border: dashed 4px var(--primary-color);
-    border-radius: 16px;
-    width: 50%;
+    border-radius: 1rem;
+    width: 100%;
     gap: 2rem;
+    @media screen and (min-width: 550px) {
+      width: 50%;
+    }
   }
 }
 </style>
