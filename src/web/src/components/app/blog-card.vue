@@ -1,6 +1,6 @@
 <template>
   <div class="blog-card">
-    <n-card v-if="latestEntry">
+    <m-card v-if="latestEntry">
       <template #cover>
         <image-helper :src="postThumbnail ?? ''" />
       </template>
@@ -11,15 +11,16 @@
         </div>
       </template>
       {{ latestEntry.title.$t }}
-    </n-card>
+    </m-card>
     <n-spin v-else></n-spin>
   </div>
 </template>
 
 <script setup lang="ts">
-import { NCard, NSpin } from "naive-ui";
+import MCard from "@/components/library/m-card.vue";
+import { NSpin } from "naive-ui";
 
-import * as $ from "jquery";
+import $ from "jquery";
 import { computed, onMounted, Ref, ref } from "vue";
 import ExternalLink from "../library/external-link.vue";
 import ImageHelper from "../library/image-helper.vue";

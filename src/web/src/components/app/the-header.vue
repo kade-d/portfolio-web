@@ -56,7 +56,11 @@ const theme = useThemeVars();
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 10%;
+    column-gap: 2vw;
+
+    // @media screen and (min-width: 500px) {
+    //   column-gap: 10%;
+    // }
   }
 
   &__right {

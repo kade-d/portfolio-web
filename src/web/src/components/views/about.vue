@@ -19,7 +19,8 @@ import VerticalPage from "../library/vertical-page.vue";
 .about {
   &__me,
   &__blog {
-    width: 50%;
+    width: 90%;
+    max-width: 570px;
   }
 }
 </style>

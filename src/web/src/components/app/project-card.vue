@@ -1,6 +1,6 @@
 <template>
   <div class="project-card">
-    <n-card>
+    <m-card>
       <template #header>
         <div class="project-card__header">
           {{ project.title }}
@@ -21,16 +21,16 @@
           :src="imagePath"
         />
       </template>
-    </n-card>
+    </m-card>
   </div>
 </template>
 
 <script setup lang="ts">
-import ImageHelper from "@/components/library/image-helper.vue";
-import Project from "@/types/project";
-import { NCard } from "naive-ui";
 import ExternalLink from "@/components/library/external-link.vue";
-import GithubLink from "./github-link.vue";
+import GithubLink from "@/components/library/github-link.vue";
+import ImageHelper from "@/components/library/image-helper.vue";
+import MCard from "@/components/library/m-card.vue";
+import Project from "@/types/project";
 
 defineProps<{
   project: Project;

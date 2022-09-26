@@ -1,7 +1,9 @@
 <template>
   <n-config-provider
     :theme="theme === Theme.Dark ? darkTheme : lightTheme"
-    :theme-overrides="themeOverrides"
+    :theme-overrides="
+      theme === Theme.Dark ? darkThemeOverrides : lightThemeOverrides
+    "
   >
     <the-shell>
       <template #top>
@@ -26,11 +28,15 @@ import {
   NConfigProvider,
 } from "naive-ui";
 import Theme from "@/types/theme";
-import { Ref, ref } from "vue";
+import { provide, Ref, ref } from "vue";
 import TheHeader from "./components/app/the-header.vue";
 import HeroBackground from "./components/library/hero-background.vue";
 
-const themeOverrides: GlobalThemeOverrides = {
+const theme: Ref<Theme> = ref(Theme.Dark);
+
+provide("theme", theme);
+
+const lightThemeOverrides: GlobalThemeOverrides = {
   common: {
     baseColor: "",
     primaryColor: "rgb(81, 162, 233)",
@@ -38,7 +44,13 @@ const themeOverrides: GlobalThemeOverrides = {
   },
 };
 
-const theme: Ref<Theme> = ref(Theme.Dark);
+const darkThemeOverrides: GlobalThemeOverrides = {
+  common: {
+    baseColor: "",
+    primaryColor: "rgb(81, 162, 233)",
+    // todo: fix boxShadow1 for dark mode
+  },
+};
 </script>
 
 <style scoped lang="scss">
