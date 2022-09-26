@@ -36,13 +36,13 @@ const cssVariables = computed(() => {
 .m-button {
   border: 1px solid var(--border-color);
   background-color: var(--background-color);
-  color: var(--text-color);
   border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
-  user-select: none;
+  color: var(--text-color);
   cursor: pointer;
-
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
   transition: box-shadow 0.3s;
+  user-select: none;
 
   &:hover {
     box-shadow: var(--hover-box-shadow);

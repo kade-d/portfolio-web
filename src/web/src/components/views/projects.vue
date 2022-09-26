@@ -1,36 +1,39 @@
 <template>
   <n-scrollbar>
     <div class="projects">
-      <div class="projects__content">
-        <div class="projects__grid">
-          <project-card
-            v-for="project of projects"
-            :project="project"
-            class="projects__card"
-          >
-          </project-card>
-        </div>
-        <n-element class="projects__badges-wrapper">
-          <div class="projects__badges">
-            <m-badge v-for="badge of badges" :key="badge.image">
-              <template #image>
-                <image-helper :src="badge.image"></image-helper>
-              </template>
-            </m-badge>
+      <vertical-page>
+        <div class="projects__content">
+          <div class="projects__grid">
+            <project-card
+              v-for="project of projects"
+              :project="project"
+              class="projects__card"
+            >
+            </project-card>
           </div>
-        </n-element>
-      </div>
+          <n-element class="projects__badges-wrapper">
+            <div class="projects__badges">
+              <m-badge v-for="badge of badges" :key="badge.image">
+                <template #image>
+                  <image-helper :src="badge.image"></image-helper>
+                </template>
+              </m-badge>
+            </div>
+          </n-element>
+        </div>
+      </vertical-page>
     </div>
   </n-scrollbar>
 </template>
 
 <script setup lang="ts">
 import MBadge from "@/components/library/m-badge.vue";
-import ProjectCard from "@/components/library/project-card.vue";
+import ProjectCard from "@/components/app/project-card.vue";
+import VerticalPage from "@/components/library/vertical-page.vue";
 
 import Badge from "@/types/badge";
 import Project from "@/types/project";
-import { NH1, NScrollbar, NElement } from "naive-ui";
+import { NScrollbar, NElement } from "naive-ui";
 import { Ref, ref } from "vue";
 import ImageHelper from "../library/image-helper.vue";
 
@@ -83,40 +86,23 @@ const badges: Badge[] = [
 
 <style scoped lang="scss">
 .projects {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  @media screen and (min-width: 900px) {
-    padding: 2rem 5rem 0 5rem;
-  }
-
   &__content {
     display: grid;
     justify-items: center;
     gap: 1rem;
-    width: 70%;
-    @media screen and (min-width: 500px) {
-      gap: 3rem;
-      width: 100%;
-    }
+    width: 90%;
+    max-width: 1000px;
   }
 
   &__grid {
     display: grid;
     gap: 1rem;
+    grid-template-columns: repeat(1, 1fr);
     flex-basis: 0;
     flex-direction: row;
 
-    @media screen and (max-width: 500px) {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    @media screen and (max-width: 900px) and (min-width: 500px) {
+    @media screen and (min-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media screen and (min-width: 900px) {
-      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -127,18 +113,14 @@ const badges: Badge[] = [
   }
 
   &__badges {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    border: dashed 4px var(--primary-color);
-    display: grid;
-    padding: 1rem 2rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border: dashed 0.25rem var(--primary-color);
     border-radius: 1rem;
-    width: 100%;
+    display: grid;
     gap: 2rem;
-    @media screen and (min-width: 550px) {
-      width: 50%;
-    }
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 1rem 2rem;
+    width: 100%;
+    max-width: 450px;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="me-card">
-    <n-card>
+    <m-card>
       <template #cover>
         <image-helper :src="meImage" />
       </template>
@@ -13,12 +13,12 @@
         and better applications. I'm motivated by creating meaningful software
         on cohesive and driven teams.
       </template>
-    </n-card>
+    </m-card>
   </div>
 </template>
 
 <script setup lang="ts">
-import { NCard } from "naive-ui";
+import MCard from "@/components/library/m-card.vue";
 import { computed } from "vue";
 import ImageHelper from "../library/image-helper.vue";
 
