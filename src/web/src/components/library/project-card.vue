@@ -1,6 +1,6 @@
 <template>
-  <div class="project-card">
-    <n-card>
+  <div :class="getModifiedClass('project-card')">
+    <n-card :bordered="true">
       <template #header>
         <div class="project-card__header">
           {{ project.title }}
@@ -31,10 +31,22 @@ import Project from "@/types/project";
 import { NCard } from "naive-ui";
 import ExternalLink from "@/components/library/external-link.vue";
 import GithubLink from "./github-link.vue";
+import { inject, ref, Ref } from "vue";
+import Theme from "@/types/theme";
 
 defineProps<{
   project: Project;
 }>();
+
+const theme: Ref<Theme> = inject("theme", ref(Theme.Dark));
+
+function getModifiedClass(baseClass: string) {
+  const classes: Record<string, boolean> = {};
+  classes[`${baseClass}`] = true;
+  classes[`${baseClass}--light`] = theme.value === Theme.Light;
+  classes[`${baseClass}--dark`] = theme.value === Theme.Dark;
+  return classes;
+}
 </script>
 
 <style scoped lang="scss">
@@ -42,6 +54,9 @@ defineProps<{
   &__header {
     display: flex;
     gap: 0.5rem;
+  }
+  &--light > .n-card.n-card--bordered {
+    border: 1px solid rgb(224, 224, 230);
   }
 }
 </style>
