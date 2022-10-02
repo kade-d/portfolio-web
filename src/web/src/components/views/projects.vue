@@ -40,7 +40,7 @@ import ImageHelper from "../library/image-helper.vue";
 const projects: Ref<Project[]> = ref([
   {
     title: "Scorecard App",
-    description: "Track scores from your phone while playing mini golf ",
+    description: "Track scores from your phone while playing mini golf",
     imagePaths: [
       new URL(
         "../../assets/projects/scorecard-app/scorecard-hole.png",
