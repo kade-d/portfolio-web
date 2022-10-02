@@ -18,8 +18,12 @@
         <image-helper
           class="project-card__image"
           v-for="imagePath of project.imagePaths"
+          :key="imagePath"
           :src="imagePath"
         />
+      </template>
+      <template #default>
+        <div v-if="project.description">{{ project.description }}</div>
       </template>
     </m-card>
   </div>

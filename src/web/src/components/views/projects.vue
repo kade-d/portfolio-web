@@ -39,7 +39,19 @@ import ImageHelper from "../library/image-helper.vue";
 
 const projects: Ref<Project[]> = ref([
   {
+    title: "Scorecard App",
+    description: "Track scores from your phone while playing mini golf ",
+    imagePaths: [
+      new URL(
+        "../../assets/projects/scorecard-app/scorecard-hole.png",
+        import.meta.url
+      ).href,
+    ],
+    link: "https://clubhousemuncieapp.com",
+  },
+  {
     title: "Replay Review",
+    description: "Review Rocket League replays with your team",
     imagePaths: [
       new URL(
         "../../assets/projects/vod-review/vod-review.jpg",
@@ -51,6 +63,7 @@ const projects: Ref<Project[]> = ref([
   },
   {
     title: "Merit Engine",
+    description: "Build portfolios and review their historical performance",
     imagePaths: [
       new URL(
         "../../assets/projects/merit-engine/merit-engine.png",
@@ -60,6 +73,7 @@ const projects: Ref<Project[]> = ref([
   },
   {
     title: "Ohana",
+    description: "Place orders for Ohana donuts and ice cream in a mobile app",
     imagePaths: [
       new URL("../../assets/projects/ohana/ohana.png", import.meta.url).href,
     ],
@@ -122,5 +136,9 @@ const badges: Badge[] = [
     width: 100%;
     max-width: 450px;
   }
+}
+
+.project-card > :deep(.n-card) {
+  height: 100%;
 }
 </style>
