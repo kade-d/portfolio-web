@@ -1,6 +1,7 @@
 export default interface Project {
-  title: string;
+  description?: string;
+  githubLink?: string;
   imagePaths: string[];
   link?: string;
-  githubLink?: string;
+  title: string;
 }
