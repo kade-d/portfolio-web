@@ -30,15 +30,6 @@ const mousePos = useMouse({
   },
 });
 
-// watch(mousePos.x, (newValue, oldValue) => {
-//   console.log(mouse.x, newValue);
-//   // mouse.x = lerp(mouse.x, newValue, 0.01); // todo check mousepos on every render so we can lerp
-// });
-
-// watch(mousePos.y, (newValue, oldValue) => {
-//   // mouse.y = lerp(mouse.y, newValue, 0.01); // todo check mousepos on every render so we can lerp
-// });
-
 const numberOfDots = 200;
 let screen: Vector = { x: 0, y: 0 };
 let mouse: Vector = { x: 0, y: 0 };
@@ -101,8 +92,8 @@ function render() {
     return;
   }
   context.clearRect(0, 0, canvas.width, canvas.height);
-  mouse.x = lerp(mouse.x, mousePos.x.value, 0.1); // todo check mousepos on every render so we can lerp
-  mouse.y = lerp(mouse.y, mousePos.y.value, 0.1); // todo check mousepos on every render so we can lerp
+  mouse.x = lerp(mouse.x, mousePos.x.value, 0.1);
+  mouse.y = lerp(mouse.y, mousePos.y.value, 0.1);
 
   for (const dot of dots) {
     dot.draw(context);
