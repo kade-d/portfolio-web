@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <slide-in>
+    <slide-in class="slide-in">
       <n-h1>I'm a full stack web developer</n-h1>
     </slide-in>
   </div>
@@ -18,7 +18,8 @@ import SlideIn from "@/components/library/slide-in.vue";
   justify-content: center;
   width: 100%;
   height: 100%;
-  > .n-h1 {
+  > .n-h1,
+  .slide-in {
     text-align: center;
   }
 }
