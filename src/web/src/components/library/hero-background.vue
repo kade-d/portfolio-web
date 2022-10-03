@@ -23,15 +23,21 @@ onMounted(() => {
 
 const theme = useThemeVars();
 
-const mousePos = useMouse();
-
-watch(mousePos.x, () => {
-  mouse.x = mousePos.x.value;
+const mousePos = useMouse({
+  initialValue: {
+    x: document.body.scrollWidth / 2,
+    y: window.innerHeight / 2,
+  },
 });
 
-watch(mousePos.y, () => {
-  mouse.y = mousePos.y.value;
-});
+// watch(mousePos.x, (newValue, oldValue) => {
+//   console.log(mouse.x, newValue);
+//   // mouse.x = lerp(mouse.x, newValue, 0.01); // todo check mousepos on every render so we can lerp
+// });
+
+// watch(mousePos.y, (newValue, oldValue) => {
+//   // mouse.y = lerp(mouse.y, newValue, 0.01); // todo check mousepos on every render so we can lerp
+// });
 
 const numberOfDots = 200;
 let screen: Vector = { x: 0, y: 0 };
@@ -86,21 +92,21 @@ function clearCanvasOnResize(timer: NodeJS.Timer) {
   };
 }
 
+function lerp(start: number, end: number, time: number) {
+  return start * (1 - time) + time * end;
+}
+
 function render() {
   if (!canvas || !context) {
     return;
   }
   context.clearRect(0, 0, canvas.width, canvas.height);
+  mouse.x = lerp(mouse.x, mousePos.x.value, 0.1); // todo check mousepos on every render so we can lerp
+  mouse.y = lerp(mouse.y, mousePos.y.value, 0.1); // todo check mousepos on every render so we can lerp
 
-  for (let dot of dots) {
+  for (const dot of dots) {
     dot.draw(context);
   }
-}
-
-function updateMouse(e: MouseEvent) {
-  var rect = canvas?.getBoundingClientRect();
-  mouse.x = e.clientX - (rect?.left ?? 0);
-  mouse.y = e.clientY - (rect?.top ?? 0);
 }
 
 function getRandomIntInclusive(min: number, max: number) {
