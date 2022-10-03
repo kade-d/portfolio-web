@@ -13,7 +13,11 @@
         ></the-header>
       </template>
       <hero-background>
-        <router-view></router-view>
+        <router-view v-slot="{ Component }">
+          <keep-alive>
+            <component :is="Component" :key="route.fullPath"></component>
+          </keep-alive>
+        </router-view>
       </hero-background>
     </the-shell>
   </n-config-provider>
@@ -31,8 +35,10 @@ import Theme from "@/types/theme";
 import { provide, Ref, ref } from "vue";
 import TheHeader from "./components/app/the-header.vue";
 import HeroBackground from "./components/library/hero-background.vue";
+import { useRoute } from "vue-router";
 
 const theme: Ref<Theme> = ref(Theme.Dark);
+const route = useRoute();
 
 provide("theme", theme);
 

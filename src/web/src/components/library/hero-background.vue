@@ -23,14 +23,11 @@ onMounted(() => {
 
 const theme = useThemeVars();
 
-const mousePos = useMouse();
-
-watch(mousePos.x, () => {
-  mouse.x = mousePos.x.value;
-});
-
-watch(mousePos.y, () => {
-  mouse.y = mousePos.y.value;
+const mousePos = useMouse({
+  initialValue: {
+    x: document.body.scrollWidth / 2,
+    y: window.innerHeight / 2,
+  },
 });
 
 const numberOfDots = 200;
@@ -86,21 +83,21 @@ function clearCanvasOnResize(timer: NodeJS.Timer) {
   };
 }
 
+function lerp(start: number, end: number, time: number) {
+  return start * (1 - time) + time * end;
+}
+
 function render() {
   if (!canvas || !context) {
     return;
   }
   context.clearRect(0, 0, canvas.width, canvas.height);
+  mouse.x = lerp(mouse.x, mousePos.x.value, 0.1);
+  mouse.y = lerp(mouse.y, mousePos.y.value, 0.1);
 
-  for (let dot of dots) {
+  for (const dot of dots) {
     dot.draw(context);
   }
-}
-
-function updateMouse(e: MouseEvent) {
-  var rect = canvas?.getBoundingClientRect();
-  mouse.x = e.clientX - (rect?.left ?? 0);
-  mouse.y = e.clientY - (rect?.top ?? 0);
 }
 
 function getRandomIntInclusive(min: number, max: number) {
