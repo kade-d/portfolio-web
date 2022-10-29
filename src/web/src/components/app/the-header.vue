@@ -2,23 +2,16 @@
   <div class="header">
     <div class="header__left"></div>
     <div class="header__middle">
-      <router-link
-        v-for="r in topLevelRoutes"
-        :key="r.name"
-        :to="r.path"
-        custom
-        v-slot="{ href, route, navigate, isActive }"
-      >
+      <!-- <a v-for="section in sections" :key="section" :href="`#${section}`">
         <m-button
-          @click="navigate()"
           :text-color="theme.textColorBase"
           :border-color="isActive ? theme.primaryColor : theme.borderColor"
           :background-color="theme.bodyColor"
           :hover-box-shadow="theme.boxShadow1"
         >
-          {{ route.name }}
+          {{ section }}
         </m-button>
-      </router-link>
+      </a> -->
     </div>
     <div class="header__right">
       <theme-switch
@@ -33,7 +26,6 @@
 <script setup lang="ts">
 import Theme from "@/types/theme";
 import ThemeSwitch from "@/components/library/theme-switch.vue";
-import topLevelRoutes from "@/router/top-level-routes";
 import mButton from "@/components/library/m-button.vue";
 import { useThemeVars } from "naive-ui";
 
@@ -44,6 +36,10 @@ const emit = defineEmits<{
 }>();
 
 const theme = useThemeVars();
+
+const sections = ["home", "projects", "about"];
+
+const isActive = false;
 </script>
 
 <style scoped lang="scss">

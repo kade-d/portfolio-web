@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "serve": "vite",
+    "serve": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite build && vite preview",
     "build:tokens": "sass3js ./src/scss/_variables.scss ./src/scss/variables.ts -f ts"
@@ -16,7 +16,8 @@
     "axios": "^0.26.1",
     "jquery": "^3.6.1",
     "vue": "^3.2.40",
-    "vue-router": "4.0.13"
+    "vue-router": "4.0.13",
+    "vue3-touch-events": "^4.1.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.14",

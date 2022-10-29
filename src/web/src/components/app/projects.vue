@@ -1,29 +1,27 @@
 <template>
-  <n-scrollbar>
-    <div class="projects">
-      <vertical-page>
-        <div class="projects__content">
-          <div class="projects__grid">
-            <project-card
-              v-for="project of projects"
-              :project="project"
-              class="projects__card"
-            >
-            </project-card>
-          </div>
-          <n-element class="projects__badges-wrapper">
-            <div class="projects__badges">
-              <m-badge v-for="badge of badges" :key="badge.image">
-                <template #image>
-                  <image-helper :src="badge.image"></image-helper>
-                </template>
-              </m-badge>
-            </div>
-          </n-element>
+  <div class="projects">
+    <vertical-page>
+      <div class="projects__content">
+        <div class="projects__grid">
+          <project-card
+            v-for="project of projects"
+            :project="project"
+            class="projects__card"
+          >
+          </project-card>
         </div>
-      </vertical-page>
-    </div>
-  </n-scrollbar>
+        <n-element class="projects__badges-wrapper">
+          <div class="projects__badges">
+            <m-badge v-for="badge of badges" :key="badge.image">
+              <template #image>
+                <image-helper :src="badge.image"></image-helper>
+              </template>
+            </m-badge>
+          </div>
+        </n-element>
+      </div>
+    </vertical-page>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -33,7 +31,7 @@ import VerticalPage from "@/components/library/vertical-page.vue";
 
 import Badge from "@/types/badge";
 import Project from "@/types/project";
-import { NScrollbar, NElement } from "naive-ui";
+import { NElement } from "naive-ui";
 import { Ref, ref } from "vue";
 import ImageHelper from "../library/image-helper.vue";
 

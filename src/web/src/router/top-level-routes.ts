@@ -1,23 +1,11 @@
 import { RouteRecordRaw } from "vue-router";
-import Home from "@/components/views/home.vue";
-import Projects from "@/components/views/projects.vue";
-import About from "@/components/views/about.vue";
+import Pages from "@/components/views/pages.vue";
 
 const topLevelRoutes: RouteRecordRaw[] = [
   {
     path: "/",
-    component: Home,
+    component: Pages,
     name: "Home",
-  },
-  {
-    path: "/projects",
-    component: Projects,
-    name: "Projects",
-  },
-  {
-    path: "/about",
-    component: About,
-    name: "About",
   },
 ];
 

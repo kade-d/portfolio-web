@@ -30,7 +30,7 @@ const theme = useThemeVars();
   &__content {
     position: absolute;
     width: 100%;
-    top: 4rem;
+    top: 0;
     bottom: 0;
   }
 }
