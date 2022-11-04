@@ -14,6 +14,7 @@ import VerticalPage from "../library/vertical-page.vue";
 </script>
 <style scoped lang="scss">
 .about {
+  height: 100%;
   &__me,
   &__blog {
     width: 90%;
