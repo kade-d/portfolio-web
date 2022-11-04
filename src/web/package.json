@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "serve": "vite",
+    "serve": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite build && vite preview",
     "build:tokens": "sass3js ./src/scss/_variables.scss ./src/scss/variables.ts -f ts"

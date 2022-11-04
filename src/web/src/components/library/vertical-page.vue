@@ -11,8 +11,9 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  padding: 1rem 0;
+  height: 100%;
   row-gap: 2rem;
 }
 </style>
