@@ -6,7 +6,7 @@ const projects: Project[] = [
     description: "Track scores from your phone while playing mini golf",
     imagePaths: [
       new URL(
-        "/src/assets/projects/scorecard-app/scorecard-hole.png",
+        "../assets/projects/scorecard-app/scorecard-hole.png",
         import.meta.url
       ).href,
     ],
@@ -16,7 +16,7 @@ const projects: Project[] = [
     title: "Replay Review",
     description: "Review Rocket League replays with your team",
     imagePaths: [
-      new URL("/src/assets/projects/vod-review/vod-review.jpg", import.meta.url)
+      new URL("../assets/projects/vod-review/vod-review.jpg", import.meta.url)
         .href,
     ],
     link: "https://bakkesplugins.com/plugins/view/173",
@@ -27,7 +27,7 @@ const projects: Project[] = [
     description: "Build portfolios and review their historical performance",
     imagePaths: [
       new URL(
-        "/src/assets/projects/merit-engine/merit-engine.png",
+        "../assets/projects/merit-engine/merit-engine.png",
         import.meta.url
       ).href,
     ],
@@ -36,7 +36,7 @@ const projects: Project[] = [
     title: "Ohana",
     description: "Place orders for Ohana donuts and ice cream in a mobile app",
     imagePaths: [
-      new URL("/src/assets/projects/ohana/ohana.png", import.meta.url).href,
+      new URL("../assets/projects/ohana/ohana.png", import.meta.url).href,
     ],
   },
 ];
