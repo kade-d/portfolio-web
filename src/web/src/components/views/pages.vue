@@ -1,5 +1,5 @@
 <template>
-  <div class="pages" @wheel="onWheel" v-touch:swipe="onSwipe">
+  <div class="pages" @wheel="onWheel" v-swipe.up.down="onSwipe">
     <section id="home" class="pages__section">
       <home></home>
     </section>
@@ -27,27 +27,22 @@
 </template>
 
 <script setup lang="ts">
-import about from "@/components/app/about.vue";
-import home from "@/components/app/home.vue";
-import projects from "@/components/app/projects.vue";
 import { NButton, NIcon } from "naive-ui";
 import { ArrowBarToDown, ArrowBarToUp } from "@vicons/tabler";
 import { computed, onMounted, ref } from "vue";
+import about from "@/components/app/about.vue";
+import home from "@/components/app/home.vue";
+import projects from "@/components/app/projects.vue";
+import vSwipe from "@/directives/v-swipe";
+import { Direction } from "@/types/swipe-state";
 
 const sections = ref<any>([]);
 const sectionIndex = ref(0);
 const isScrolling = ref(false);
-const clientY = ref(0);
-const dragDistanceY = ref(0);
 
 onMounted(() => {
   sections.value = document.querySelectorAll("section");
 });
-
-enum Direction {
-  UP = 1,
-  DOWN = 2,
-}
 
 const availableDirections = computed(() => {
   const directions = [];
@@ -60,13 +55,13 @@ const availableDirections = computed(() => {
   return directions;
 });
 
-const onSwipe = (e: string) => {
-  console.log(e);
-  switch (e) {
-    case "top":
+const onSwipe = (direction: Direction) => {
+  console.log(direction);
+  switch (direction) {
+    case Direction.UP:
       onNavigate(Direction.DOWN);
       break;
-    case "bottom":
+    case Direction.DOWN:
       onNavigate(Direction.UP);
       break;
   }
@@ -81,7 +76,6 @@ var scrollTimeout: NodeJS.Timeout | undefined;
 
 const onNavigate = (direction: Direction) => {
   if (isScrolling.value || !availableDirections.value.includes(direction)) {
-    console.log("returning");
     return;
   }
   isScrolling.value = true;
