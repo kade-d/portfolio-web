@@ -33,7 +33,6 @@ function onTouchMove(event: TouchEvent, state: SwipeState) {
 
 function onTouchEnd(event: TouchEvent, state: SwipeState) {
   event.preventDefault();
-  console.log(event);
   state.touchendX = event.changedTouches[0].clientX;
   state.touchendY = event.changedTouches[0].clientY;
 
@@ -53,8 +52,6 @@ function onTouchEnd(event: TouchEvent, state: SwipeState) {
   if (swipeDirection && state.directions.some((d) => d === swipeDirection)) {
     state.hook(swipeDirection);
   }
-
-  console.log(deltaY);
 }
 
 function initState(

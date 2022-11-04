@@ -3,8 +3,15 @@
     <section id="home" class="pages__section">
       <home></home>
     </section>
-    <section id="projects" class="pages__section">
-      <projects></projects>
+    <section
+      v-for="project of projects"
+      :key="project.title"
+      :id="`projects-${project.title}`"
+      class="pages__section"
+    >
+      <vertical-page>
+        <project-card :project="project" class="project-card"> </project-card>
+      </vertical-page>
     </section>
     <section id="about" class="pages__section">
       <about></about>
@@ -32,7 +39,9 @@ import { ArrowBarToDown, ArrowBarToUp } from "@vicons/tabler";
 import { computed, onMounted, ref } from "vue";
 import about from "@/components/app/about.vue";
 import home from "@/components/app/home.vue";
-import projects from "@/components/app/projects.vue";
+import projectCard from "@/components/app/project-card.vue";
+import verticalPage from "@/components/library/vertical-page.vue";
+import projects from "@/data/projects";
 import vSwipe from "@/directives/v-swipe";
 import { Direction } from "@/types/swipe-state";
 
@@ -56,7 +65,6 @@ const availableDirections = computed(() => {
 });
 
 const onSwipe = (direction: Direction) => {
-  console.log(direction);
   switch (direction) {
     case Direction.UP:
       onNavigate(Direction.DOWN);
@@ -118,5 +126,10 @@ const onNavigate = (direction: Direction) => {
     bottom: 16px;
     right: 16px;
   }
+}
+
+.project-card {
+  margin: 0 16px;
+  max-width: 800px;
 }
 </style>
