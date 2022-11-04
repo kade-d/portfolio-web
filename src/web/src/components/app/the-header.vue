@@ -1,18 +1,7 @@
 <template>
   <div class="header">
     <div class="header__left"></div>
-    <div class="header__middle">
-      <!-- <a v-for="section in sections" :key="section" :href="`#${section}`">
-        <m-button
-          :text-color="theme.textColorBase"
-          :border-color="isActive ? theme.primaryColor : theme.borderColor"
-          :background-color="theme.bodyColor"
-          :hover-box-shadow="theme.boxShadow1"
-        >
-          {{ section }}
-        </m-button>
-      </a> -->
-    </div>
+    <div class="header__middle"></div>
     <div class="header__right">
       <theme-switch
         class="header__theme-switch"
@@ -26,20 +15,12 @@
 <script setup lang="ts">
 import Theme from "@/types/theme";
 import ThemeSwitch from "@/components/library/theme-switch.vue";
-import mButton from "@/components/library/m-button.vue";
-import { useThemeVars } from "naive-ui";
 
 defineProps<{ selectedTheme: Theme }>();
 
 const emit = defineEmits<{
   (eventName: "themeChanged", theme: Theme): void;
 }>();
-
-const theme = useThemeVars();
-
-const sections = ["home", "projects", "about"];
-
-const isActive = false;
 </script>
 
 <style scoped lang="scss">
@@ -53,10 +34,6 @@ const isActive = false;
     align-items: center;
     justify-content: center;
     column-gap: 2vw;
-
-    // @media screen and (min-width: 500px) {
-    //   column-gap: 10%;
-    // }
   }
 
   &__right {
