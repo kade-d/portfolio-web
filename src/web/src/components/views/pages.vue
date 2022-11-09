@@ -9,9 +9,7 @@
       :id="`projects-${project.title}`"
       class="pages__section"
     >
-      <vertical-page>
-        <project-card :project="project" class="project-card"> </project-card>
-      </vertical-page>
+      <project :project="project" class="project"> </project>
     </section>
     <section id="about" class="pages__section">
       <about></about>
@@ -36,14 +34,14 @@
 <script setup lang="ts">
 import { NButton, NIcon } from "naive-ui";
 import { ArrowBarToDown, ArrowBarToUp } from "@vicons/tabler";
-import { computed, onMounted, ref } from "vue";
-import about from "@/components/app/about.vue";
-import home from "@/components/app/home.vue";
-import projectCard from "@/components/app/project-card.vue";
-import verticalPage from "@/components/library/vertical-page.vue";
+import { computed, onMounted, provide, ref } from "vue";
+import about from "@/components/app/pages/about.vue";
+import home from "@/components/app/pages/home.vue";
+import project from "@/components/app/pages/project.vue";
 import projects from "@/data/projects";
 import vSwipe from "@/directives/v-swipe";
 import { Direction } from "@/types/swipe-state";
+import { navigateKey } from "@/types/injection-keys";
 
 const sections = ref<any>([]);
 const sectionIndex = ref(0);
@@ -100,6 +98,8 @@ const onNavigate = (direction: Direction) => {
     behavior: "smooth",
   });
 };
+
+provide(navigateKey, onNavigate);
 </script>
 
 <style scoped lang="scss">
@@ -126,10 +126,5 @@ const onNavigate = (direction: Direction) => {
     bottom: 16px;
     right: 16px;
   }
-}
-
-.project-card {
-  margin: 0 16px;
-  max-width: 800px;
 }
 </style>
